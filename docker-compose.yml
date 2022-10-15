@@ -27,7 +27,7 @@ services:
     container_name: mp-server
     restart: "on-failure"
     expose:
-      - 8080
+      - 3601
     volumes:
       - "./mp-server:/mp-server"
       - "/mp-server/server/node_modules"
