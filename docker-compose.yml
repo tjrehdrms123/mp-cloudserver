@@ -8,29 +8,29 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./MP-CloudServer/nginx.conf:/etc/nginx/nginx.conf
-      - ./MP-Client/build:/usr/share/nginx/html
+      - ./mp-cloudServer/nginx.conf:/etc/nginx/nginx.conf
+      - ./mp-client/build:/usr/share/nginx/html
 
-  MP-Client:
+  mp-client:
     build:
-      context: ./MP-Client/
-    container_name: MP-Client
+      context: ./mp-client/
+    container_name: mp-client
     expose:
       - 3000
     volumes:
-      - "./MP-Client:/MP-Client"
-      - "/MP-Client/node_modules"
+      - "./mp-client:/mp-client"
+      - "/mp-client/node_modules"
 
   server:
     build:
-      context: ./MP-Server/
-    container_name: MP-Server
+      context: ./mp-server/
+    container_name: mp-server
     restart: "on-failure"
     expose:
       - 8080
     volumes:
-      - "./MP-Server:/MP-Server"
-      - "/MP-Server/node_modules"
+      - "./mp-server:/mp-server"
+      - "/mp-server/node_modules"
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
