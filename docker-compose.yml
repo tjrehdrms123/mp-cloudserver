@@ -1,38 +1,26 @@
-version: "3.3"
+version: '3.3'
 
 services:
-  nginx-proxy:
+  web:
     image: nginx:latest
-    container_name: nginx-proxy
-    restart: "on-failure"
+    container_name: web
+    # restart: "on-failure"
     ports:
-      - 80:80
+      - "80:80"
     volumes:
       - ./mp-cloudserver/nginx.conf:/etc/nginx/nginx.conf
       - ./mp-client/client/build:/usr/share/nginx/html
-
-  mp-client:
-    build:
-      context: ./mp-client/client
-    container_name: mp-client
-    expose:
-      - 3000
-    volumes:
-      - "./mp-client:/mp-client"
-      - "/mp-client/node_modules"
-
   server:
     build:
       context: ./mp-server/server
-    container_name: mp-server
-    restart: "on-failure"
-    expose:
-      - 3601
+    container_name: server
+    # restart: "on-failure"
+    ports:
+      - "3601:3601"
     volumes:
-      - "./mp-server:/mp-server"
-      - "/mp-server/server/node_modules"
+      - './mp-server/server:/app'
+      - '/app/node_modules'
     environment:
-      - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
     stdin_open: true
     tty: true
