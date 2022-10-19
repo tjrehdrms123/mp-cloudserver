@@ -1,5 +1,17 @@
 # MP-CloudServer
 
+## Server ENV
+ - AWS
+   - EC2 Ubuntu18.04 [t3.small]
+   - RDS PostgreSQL [db.t3.micro]
+ - EC2 ENV
+   - NVM
+   - Docker
+   - Docker-compose
+ - Docker ENV
+   - Nginx
+   - node:16.18.0-alpine
+
 ## Installation
 
 ```
