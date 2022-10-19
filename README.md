@@ -12,7 +12,7 @@ cd ../mp-server
 - cd ../mp-client
 - npm install
 4)
-cd ..
+- cd ..
 - docker-compose up -d
 - docker-compose start web
 ```
