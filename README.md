@@ -3,9 +3,18 @@
 ## Installation
 
 ```
-mv ./docker-compose.yml ../
-docker-compose up -d
-docker-compose start web
+1)
+ - mv ./docker-compose.yml ../
+2)
+cd ../mp-server
+- npm install
+3)
+- cd ../mp-client
+- npm install
+4)
+cd ..
+- docker-compose up -d
+- docker-compose start web
 ```
 
 ## Config Notes
