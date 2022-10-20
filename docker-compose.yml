@@ -4,7 +4,7 @@ services:
   web:
     image: nginx:latest
     container_name: web
-    # restart: "on-failure"
+    restart: "on-failure"
     ports:
       - "80:80"
     volumes:
@@ -14,7 +14,7 @@ services:
     build:
       context: ./mp-server/server
     container_name: server
-    # restart: "on-failure"
+    restart: "on-failure"
     ports:
       - "3601:3601"
     volumes:

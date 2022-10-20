@@ -38,7 +38,7 @@ cd ../mp-server
  }
  ```
  - 기존에 docker-compose.yml 파일 server 컨테이너에 `ports`가 아닌 `expose`로 되어 있었다 두개의 차이점은 `ports`는 퍼블릭 엑세스 설정이고 `expose`는 퍼블릭 엑세스를 제한하고 프라이빗 즉 컨테이너끼리 통신이 가능하다
-
+ - RDS ParseDashboard AWS RDS Postgres DB "does not exist" when connecting with PG 직접 `Create Database`해줘야된다
 
 ## CMD Notes
 - `up`
