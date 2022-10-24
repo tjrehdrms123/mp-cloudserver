@@ -43,7 +43,6 @@ npm install pm2 -g
 pm2 start server.js --watch
 ```
 
-
 ## Config Notes
  - `Reverse-proxy`란 클라이언트 요청을 대신 받아 내부 서버로 전달 해주는 것이다
    - 사용자 > nginx > 웹서버(Express) 해당 Workflow처럼 중간에 nginx가 껴있어서 많은 이점이 있다 아래는 해당 설정이다
