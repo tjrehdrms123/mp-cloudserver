@@ -14,20 +14,35 @@
 
 ## Installation
 
+### Project Setting - first step
 ```
-1)
- - mv ./docker-compose.yml ../
-2)
+mv ./docker-compose.yml ../
 cd ../mp-server
-- npm install
-3)
-- cd ../mp-client
-- npm install
-4)
-- cd ..
-- docker-compose up -d
-- docker-compose start web
+npm install
+cd ../mp-client
+npm install
+cd ..
+docker-compose up -d
 ```
+
+### Server Setting - Last step
+
+```
+# NVM
+docker exec -it web /bin/sh
+apt-get update -y
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm install 16.11.0
+nvm use 16.11.0
+npm install
+# pm2
+npm install pm2 -g
+pm2 start server.js --watch
+```
+
 
 ## Config Notes
  - `Reverse-proxy`란 클라이언트 요청을 대신 받아 내부 서버로 전달 해주는 것이다
