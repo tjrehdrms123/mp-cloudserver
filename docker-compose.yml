@@ -8,16 +8,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./mp-cloudserver/nginx.conf:/etc/nginx/nginx.conf
+      - ./mp-cloudserver/client.conf:/etc/nginx/conf.d/client.conf
+      - ./mp-cloudserver/server.conf:/etc/nginx/conf.d/server.conf
       - ./mp-client/client/build:/usr/share/nginx/html
-  server:
-    build:
-      context: ./mp-server/server
-    container_name: server
-    restart: "on-failure"
-    ports:
-      - "3601:3601"
-    volumes:
       - './mp-server/server:/app'
       - '/app/node_modules'
     environment:
